@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+
 
 function App() {
+
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+  const weightAsNumber = Number(weight);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <label>
+        Height(m):
+        <input
+          value={height}
+          onChange={e => setHeight(e.target.value)}
+          type="number"
+        />
+      </label>
+      <label>
+        Weight:
+        <input
+          value={weight}
+          onChange={e => setWeight(e.target.value)}
+          type="number"
+        />
+        <button onClick={() => setWeight(weightAsNumber + 10)}>
+          Add 10 pounds
+        </button>
+      </label>
+      {height !== '' &&
+        <p>Your height is {height}.</p>
+      }
+      {weight > 0 &&
+        <p>Your weight is {weightAsNumber}.</p>
+      }
+      {weight > 0 &&
+        <p>Your BMI {weightAsNumber/((height/100)**2)}.</p>
+      }
+    </>
   );
 }
 
