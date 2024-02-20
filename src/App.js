@@ -9,7 +9,17 @@ function App() {
 
 
   return (
-    <>
+    <div>
+      <h1 style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}}>BMI Calculator</h1>
+      <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}}>
       <label>
         Height(m):
         <input
@@ -25,10 +35,21 @@ function App() {
           onChange={e => setWeight(e.target.value)}
           type="number"
         />
+        </label>
+        </div>
+        <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}} >
         <button onClick={() => setWeight(weightAsNumber + 10)}>
-          Add 10 pounds
+          Gain 10 pounds
         </button>
-      </label>
+        <button onClick={() => setWeight(weightAsNumber - 10)}>
+          Lose 10 pounds
+        </button>
+        </div>
+      
       {height !== '' &&
         <p>Your height is {height}.</p>
       }
@@ -38,7 +59,7 @@ function App() {
       {weight > 0 &&
         <p>Your BMI {weightAsNumber/((height/100)**2)}.</p>
       }
-    </>
+    </div>
   );
 }
 
