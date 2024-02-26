@@ -1,21 +1,17 @@
-export default function HeightDisplay({ unitvalue }) 
-{
-
-    if(unitvalue==="US")
-    {return (
-    
-        <div>
-        <p style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}> Inches</p>
+export default function HeightDisplay({ unitvalue }) {
+    if (unitvalue === "US") {
+      return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+   
+          <p>Inches</p>
         </div>
-    )
-    }
-    else
-
-    {return (
-    
-        <div>
-        <p style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}> Centimeters</p>
+      );
+    } else {
+      return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <p>Centimeters</p>
         </div>
-    )
+      );
     }
-}
+  }
+  

@@ -4,8 +4,9 @@ export default function WeightDisplay({ unitvalue })
     if(unitvalue==="US")
     {return (
     
-        <div>
-        <p style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}> Pounds</p>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+        <p> Pounds</p>
+        
         </div>
     )
     }
@@ -13,8 +14,8 @@ export default function WeightDisplay({ unitvalue })
 
     {return (
     
-        <div>
-        <p style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}> Kilograms</p>
+        <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
+        <p> Kilograms</p>
         </div>
     )
     }

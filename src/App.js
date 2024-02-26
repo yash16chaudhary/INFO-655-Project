@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import './stylesheet.css';
+import './App.css';
+import ResultBar from './ResultBar';
 import OutputDisplay from './OutputDisplay';
 import WeightDisplay from './WeightDisplay';
 import HeightDisplay from './HeightDisplay';
 import GainWeight from './GainWeight';
 import LoseWeight from './LoseWeight';
-
 
 function App() {
 
@@ -45,6 +45,7 @@ function App() {
       <HeightDisplay unitvalue={units}></HeightDisplay>
       <label>Weight: <input value={weight} onChange={e => setWeight(e.target.value)} type="number"/></label>
       <WeightDisplay unitvalue={units}></WeightDisplay>
+      
       </div>
 
       <p style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
@@ -66,8 +67,6 @@ function App() {
         </label>
       </p>
 
-   
-
 
       <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
       <GainWeight unitvalue={units} onClick={handleClick2}></GainWeight>
@@ -78,6 +77,7 @@ function App() {
       <button onClick={handleClick}>Calculate BMI</button>
       </div>
       <OutputDisplay bmivalue={bmi}></OutputDisplay>
+      <ResultBar bmiResult={bmi} />
       </div>
   );
 }
