@@ -1,25 +1,25 @@
 import { useState } from 'react';
+import './stylesheet.css';
+import './OutputDisplay'
+import OutputDisplay from './OutputDisplay';
 
 
 function App() {
 
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
+  const [bmi, setBmi] = useState('');
   const weightAsNumber = Number(weight);
+  const heightAsNumber = Number(height);
+
+  //Implement in component
+  const handleClick = () => {var mybmi=weightAsNumber/((heightAsNumber/100)**2);setBmi(mybmi)};
 
 
   return (
     <div>
-      <h1 style={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-}}>BMI Calculator</h1>
-      <div style={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-}}>
+      <h1 style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>BMI Calculator</h1>
+      <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
       <label>
         Height(m):
         <input
@@ -37,28 +37,19 @@ function App() {
         />
         </label>
         </div>
-        <div style={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-}} >
-        <button onClick={() => setWeight(weightAsNumber + 10)}>
-          Gain 10 pounds
-        </button>
-        <button onClick={() => setWeight(weightAsNumber - 10)}>
-          Lose 10 pounds
-        </button>
+        <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
+        <button onClick={() => setWeight(weightAsNumber + 10)}>Gain 10 pounds</button>
+        <button onClick={() => setWeight(weightAsNumber - 10)}>Lose 10 pounds</button>
         </div>
+       
+        <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
+        <button onClick={handleClick}>Calculate BMI</button>
+        </div>
+        
       
-      {height !== '' &&
-        <p>Your height is {height}.</p>
-      }
-      {weight > 0 &&
-        <p>Your weight is {weightAsNumber}.</p>
-      }
-      {weight > 0 &&
-        <p>Your BMI {weightAsNumber/((height/100)**2)}.</p>
-      }
+      
+
+    <OutputDisplay title={bmi}></OutputDisplay>
     </div>
   );
 }
