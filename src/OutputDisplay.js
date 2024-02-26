@@ -1,11 +1,11 @@
-export default function OutputDisplay({ title }) 
+export default function OutputDisplay({ bmivalue }) 
 {
 
-    if(title<30)
+    if(bmivalue<30)
     {return (
     
         <div>
-        <p style={{display: 'flex',alignItems: 'center',justifyContent: 'center',color:'green'}}>Your BMI {title}</p>
+        <p style={{display: 'flex',alignItems: 'center',justifyContent: 'center',color:'green'}}>Your BMI {bmivalue}</p>
         </div>
     )
     }
@@ -14,7 +14,7 @@ export default function OutputDisplay({ title })
     {return (
     
         <div>
-        <p style={{display: 'flex',alignItems: 'center',justifyContent: 'center',color:'red'}}>Your BMI {title}</p>
+        <p style={{display: 'flex',alignItems: 'center',justifyContent: 'center',color:'red'}}>Your BMI {bmivalue}</p>
         </div>
     )
     }

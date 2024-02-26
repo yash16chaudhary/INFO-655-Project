@@ -12,7 +12,7 @@ function App() {
   const heightAsNumber = Number(height);
 
   //Implement in component
-  const handleClick = () => {var mybmi=weightAsNumber/((heightAsNumber/100)**2);setBmi(mybmi)};
+  const handleClick = () => {setBmi(weightAsNumber/((heightAsNumber/100)**2));};
 
   //Organize inline+components
 
@@ -33,7 +33,7 @@ function App() {
       <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
       <button onClick={handleClick}>Calculate BMI</button>
       </div>
-      <OutputDisplay title={bmi}></OutputDisplay>
+      <OutputDisplay bmivalue={bmi}></OutputDisplay>
       </div>
   );
 }
