@@ -20,36 +20,21 @@ function App() {
     <div>
       <h1 style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>BMI Calculator</h1>
       <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
-      <label>
-        Height(m):
-        <input
-          value={height}
-          onChange={e => setHeight(e.target.value)}
-          type="number"
-        />
+      <label>Height(cm):<input value={height} onChange={e => setHeight(e.target.value)} type="number"/>
       </label>
-      <label>
-        Weight:
-        <input
-          value={weight}
-          onChange={e => setWeight(e.target.value)}
-          type="number"
-        />
-        </label>
-        </div>
-        <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
-        <button onClick={() => setWeight(weightAsNumber + 10)}>Gain 10 pounds</button>
-        <button onClick={() => setWeight(weightAsNumber - 10)}>Lose 10 pounds</button>
-        </div>
+      <label>Weight:(kg)<input value={weight} onChange={e => setWeight(e.target.value)} type="number"/>
+      </label>
+      </div>
+      <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
+      <button onClick={() => setWeight(weightAsNumber + 10)}>Gain 10 pounds</button>
+      <button onClick={() => setWeight(weightAsNumber - 10)}>Lose 10 pounds</button>
+      </div>
        
-        <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
-        <button onClick={handleClick}>Calculate BMI</button>
-        </div>
+      <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
+      <button onClick={handleClick}>Calculate BMI</button>
+      </div>
         
-      
-      
-
-    <OutputDisplay title={bmi}></OutputDisplay>
+      <OutputDisplay title={bmi}></OutputDisplay>
     </div>
   );
 }
