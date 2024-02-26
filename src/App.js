@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './stylesheet.css';
-import './OutputDisplay'
 import OutputDisplay from './OutputDisplay';
 
 

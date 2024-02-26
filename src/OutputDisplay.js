@@ -1,7 +1,7 @@
 export default function OutputDisplay({ title }) 
 {
 
-    if(title<50)
+    if(title<30)
     {return (
     
         <div>
