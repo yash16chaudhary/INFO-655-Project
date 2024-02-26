@@ -6,9 +6,9 @@ import OutputDisplay from './OutputDisplay';
 
 function App() {
 
-  const [height, setHeight] = useState('');
-  const [weight, setWeight] = useState('');
-  const [bmi, setBmi] = useState('');
+  const [height, setHeight] = useState(0);
+  const [weight, setWeight] = useState(0);
+  const [bmi, setBmi] = useState(0);
   const weightAsNumber = Number(weight);
   const heightAsNumber = Number(height);
 
