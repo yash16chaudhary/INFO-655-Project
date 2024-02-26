@@ -34,9 +34,8 @@ function App() {
       <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
       <button onClick={handleClick}>Calculate BMI</button>
       </div>
-        
       <OutputDisplay title={bmi}></OutputDisplay>
-    </div>
+      </div>
   );
 }
 
