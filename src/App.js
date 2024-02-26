@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import './stylesheet.css';
 import OutputDisplay from './OutputDisplay';
+import WeightDisplay from './WeightDisplay';
+import HeightDisplay from './HeightDisplay';
+import GainWeight from './GainWeight';
+import LoseWeight from './LoseWeight';
 
 
 function App() {
@@ -13,7 +17,23 @@ function App() {
   const heightAsNumber = Number(height);
 
   //Implement in component
-  const handleClick = () => {setBmi(weightAsNumber/((heightAsNumber/100)**2));};
+  const handleClick = () => {
+    if(units==="Metric")
+    {
+    setBmi((weightAsNumber/((heightAsNumber/100)**2)).toFixed(2))
+    }
+    else
+    {
+      setBmi((weightAsNumber/((heightAsNumber)**2)*703).toFixed(2))
+    }
+  
+  
+  
+  };
+
+  const handleClick2 = () => {setWeight(weightAsNumber + 10)};
+
+  const handleClick3 = () => {setWeight(weightAsNumber - 10)};
 
   //Organize inline+components
 
@@ -21,13 +41,13 @@ function App() {
     <div>
       <h1 style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>BMI Calculator</h1>
       <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
-      <label>Height(cm):<input value={height} onChange={e => setHeight(e.target.value)} type="number"/>
-      </label>
-      <label>Weight:(kg)<input value={weight} onChange={e => setWeight(e.target.value)} type="number"/>
-      </label>
+      <label>Height: <input value={height} onChange={e => setHeight(e.target.value)} type="number"/></label>
+      <HeightDisplay unitvalue={units}></HeightDisplay>
+      <label>Weight: <input value={weight} onChange={e => setWeight(e.target.value)} type="number"/></label>
+      <WeightDisplay unitvalue={units}></WeightDisplay>
       </div>
 
-      <p>
+      <p style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
         Units:
         <label>
           <input type="radio" name="Metric" value="Metric" defaultChecked={true} onChange={e => setUnits(e.target.value)} checked={units === 'Metric'} />
@@ -46,12 +66,12 @@ function App() {
         </label>
       </p>
 
-      <p>Units {units}</p>
+   
 
 
       <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
-      <button onClick={() => setWeight(weightAsNumber + 10)}>Gain 10 kg</button>
-      <button onClick={() => setWeight(weightAsNumber - 10)}>Lose 10 kg</button>
+      <GainWeight unitvalue={units} onClick={handleClick2}></GainWeight>
+      <LoseWeight unitvalue={units} onClick={handleClick3}></LoseWeight>
       </div>
        
       <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
