@@ -15,6 +15,7 @@ function App() {
   //Implement in component
   const handleClick = () => {var mybmi=weightAsNumber/((heightAsNumber/100)**2);setBmi(mybmi)};
 
+  //Organize inline+components
 
   return (
     <div>
