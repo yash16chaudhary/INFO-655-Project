@@ -8,6 +8,7 @@ function App() {
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
   const [bmi, setBmi] = useState(0);
+  const [units, setUnits] = useState('');
   const weightAsNumber = Number(weight);
   const heightAsNumber = Number(height);
 
@@ -25,6 +26,29 @@ function App() {
       <label>Weight:(kg)<input value={weight} onChange={e => setWeight(e.target.value)} type="number"/>
       </label>
       </div>
+
+      <p>
+        Units:
+        <label>
+          <input type="radio" name="Metric" value="Metric" defaultChecked={true} onChange={e => setUnits(e.target.value)} checked={units === 'Metric'} />
+          Metric
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="US"
+            value="US"
+            onChange={e => setUnits(e.target.value)}
+            checked={units === 'US'}
+            
+          />
+          US
+        </label>
+      </p>
+
+      <p>Units {units}</p>
+
+
       <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
       <button onClick={() => setWeight(weightAsNumber + 10)}>Gain 10 pounds</button>
       <button onClick={() => setWeight(weightAsNumber - 10)}>Lose 10 pounds</button>
