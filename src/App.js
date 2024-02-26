@@ -50,8 +50,8 @@ function App() {
 
 
       <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
-      <button onClick={() => setWeight(weightAsNumber + 10)}>Gain 10 pounds</button>
-      <button onClick={() => setWeight(weightAsNumber - 10)}>Lose 10 pounds</button>
+      <button onClick={() => setWeight(weightAsNumber + 10)}>Gain 10 kg</button>
+      <button onClick={() => setWeight(weightAsNumber - 10)}>Lose 10 kg</button>
       </div>
        
       <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
