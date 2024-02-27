@@ -42,10 +42,14 @@ function App() {
       <h1 style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>BMI Calculator</h1>
       <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
       <label>Height: <input value={height} onChange={e => setHeight(e.target.value)} type="number"/></label>
-      <HeightDisplay unitvalue={units}></HeightDisplay>
-      <label>Weight: <input value={weight} onChange={e => setWeight(e.target.value)} type="number"/></label>
-      <WeightDisplay unitvalue={units}></WeightDisplay>
       
+      <label>Weight: <input value={weight} onChange={e => setWeight(e.target.value)} type="number"/></label>
+      
+      
+      </div>
+      <div class="underneath">
+        <HeightDisplay unitvalue={units}></HeightDisplay>
+        <WeightDisplay unitvalue={units}></WeightDisplay>
       </div>
 
       <p style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>

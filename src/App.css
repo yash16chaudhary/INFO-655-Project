@@ -91,6 +91,15 @@ button:hover {
   flex-direction: column;
 }
 
+.underneath{
+  display: grid;
+    grid-template-columns: 50% 50%;
+
+    align-items: center;
+
+    grid-template-areas:"h  w"
+}
+
 .result-bar-container {
   width: 50%;
   margin: 20px auto;
