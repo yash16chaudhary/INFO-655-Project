@@ -127,6 +127,8 @@ function App() {
         <button onClick={handleClick}>Calculate BMI</button>
       </div>
 
+
+
       <p>Your Maintenance Calories {bmr}</p>
 
       <OutputDisplay bmivalue={bmi}></OutputDisplay>
@@ -134,5 +136,8 @@ function App() {
     </div>
   );
 }
+
+//Need to add BMR Output Component
+//Need to add logic for exercise level
 
 export default App;
