@@ -25,15 +25,15 @@ function App() {
     if (units === 'Metric') {
       setBmi((weightAsNumber / ((heightAsNumber / 100) ** 2)).toFixed(2));
       if(gender=== "Female")
-      {setBmr((weightAsNumber*10)+(height*6.25)-(age*5)-161)}
+      {setBmr(((weightAsNumber*10)+(height*6.25)-(age*5)-161).toFixed(2))}
       else
-      {setBmr((weightAsNumber*10)+(height*6.25)-(age*5)+5)}
+      {setBmr(((weightAsNumber*10)+(height*6.25)-(age*5)+5).toFixed(2))}
     } else {
       setBmi((weightAsNumber / (heightAsNumber ** 2) * 703).toFixed(2));
       if(gender=== "Female")
-      {setBmr((weightAsNumber*4.536)+(height*15.88)-(age*5)+5)}
+      {setBmr(((weightAsNumber*4.536)+(height*15.88)-(age*5)+5).toFixed(2))}
       else
-      {setBmr((weightAsNumber*4.536)+(height*15.88)-(age*5)+5)}
+      {setBmr(((weightAsNumber*4.536)+(height*15.88)-(age*5)+5).toFixed(2))}
     }
   };
 
