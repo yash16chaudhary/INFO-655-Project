@@ -31,9 +31,9 @@ function App() {
     } else {
       setBmi((weightAsNumber / (heightAsNumber ** 2) * 703).toFixed(2));
       if(gender=== "Female")
-      {setBmr((weightAsNumber*4.35)+(height*4.7)-(age*4.7)+655.1)}
+      {setBmr((weightAsNumber*4.536)+(height*15.88)-(age*5)+5)}
       else
-      {setBmr((weightAsNumber*6.24)+(height*12.7)-(age*6.755)+66.47)}
+      {setBmr((weightAsNumber*4.536)+(height*15.88)-(age*5)+5)}
     }
   };
 
