@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './App.css';
 import ResultBar from './ResultBar';
 import OutputDisplay from './OutputDisplay';
+import BMRDisplay from './BMRDisplay';
 import WeightDisplay from './WeightDisplay';
 import HeightDisplay from './HeightDisplay';
 import GainWeight from './GainWeight';
@@ -14,9 +15,9 @@ function App() {
   const [age, setAge] = useState(0);
   const [bmi, setBmi] = useState(0);
   const [bmr, setBmr] = useState(0);
-  const [units, setUnits] = useState('');
-  const [gender, setGender] = useState('');
-  const [activity, setActivity] = useState(0);
+  const [units, setUnits] = useState('US');
+  const [gender, setGender] = useState('Male');
+  const [activity, setActivity] = useState(1);
   
   const weightAsNumber = Number(weight);
   const heightAsNumber = Number(height);
@@ -49,7 +50,7 @@ function App() {
 
   return (
     <div>
-      <h1 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>BMI Calculator</h1>
+      <h1 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>BMI & BMR Calculator</h1>
   
       {/* Container for Boxes */}
       <div className="container">
@@ -109,12 +110,12 @@ function App() {
       <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         Units:
         <label>
-          <input type="radio" name="Metric" value="Metric" defaultChecked={true} onChange={(e) => setUnits(e.target.value)} checked={units === 'Metric'} />
-          Metric
+          <input type="radio" name="US" value="US" defaultChecked={true} onChange={(e) => setUnits(e.target.value)} checked={units === 'US'} />
+          US
         </label>
         <label>
-          <input type="radio" name="US" value="US" onChange={(e) => setUnits(e.target.value)} checked={units === 'US'} />
-          US
+          <input type="radio" name="Metric" value="Metric"  onChange={(e) => setUnits(e.target.value)} checked={units === 'Metric'} />
+          Metric
         </label>
       </p>
   
@@ -124,20 +125,17 @@ function App() {
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <button onClick={handleClick}>Calculate BMI</button>
+        <button onClick={handleClick}>Calculate BMI/BMR</button>
       </div>
 
-
-
-      <p>Your Maintenance Calories {bmr}</p>
-
+      <BMRDisplay bmrvalue={bmr}></BMRDisplay>
       <OutputDisplay bmivalue={bmi}></OutputDisplay>
       <ResultBar bmiResult={bmi} />
     </div>
   );
 }
 
-//Need to add BMR Output Component
+//To be done
 //Need to add live conversions for Metric->US
 //Need to add slider
 
