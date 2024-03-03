@@ -11,16 +11,29 @@ import LoseWeight from './LoseWeight';
 function App() {
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
+  const [age, setAge] = useState(0);
   const [bmi, setBmi] = useState(0);
+  const [bmr, setBmr] = useState(0);
   const [units, setUnits] = useState('');
+  const [gender, setGender] = useState('');
+  const [activity, setActivity] = useState('');
+  
   const weightAsNumber = Number(weight);
   const heightAsNumber = Number(height);
 
   const handleClick = () => {
     if (units === 'Metric') {
       setBmi((weightAsNumber / ((heightAsNumber / 100) ** 2)).toFixed(2));
+      if(gender=== "Female")
+      {setBmr((weightAsNumber*10)+(height*6.25)-(age*5)-161)}
+      else
+      {setBmr((weightAsNumber*10)+(height*6.25)-(age*5)+5)}
     } else {
       setBmi((weightAsNumber / (heightAsNumber ** 2) * 703).toFixed(2));
+      if(gender=== "Female")
+      {setBmr((weightAsNumber*10)+(height*6.25)-(age*5)-161)}
+      else
+      {setBmr((weightAsNumber*10)+(height*6.25)-(age*5)+5)}
     }
   };
 
@@ -31,6 +44,8 @@ function App() {
   const handleClick3 = () => {
     setWeight(weightAsNumber - 10);
   };
+
+
 
   return (
     <div>
@@ -54,8 +69,42 @@ function App() {
           </label>
           <WeightDisplay unitvalue={units}></WeightDisplay>
         </div>
+
+        <div className="box">
+          <label>
+            Age <input value={age} onChange={(e) => setAge(e.target.value)} type="number" />
+          </label>
+          <p>Years</p>
+        </div>
+
+        <div className="box">
+          
+          <label>
+            <input type="radio" name="Male" value="Male" defaultChecked={true} onChange={(e) => setGender(e.target.value)} checked={gender === 'Male'} />
+            Male
+          </label>
+          <label>
+            <input type="radio" name="Female" value="Female" onChange={(e) => setGender(e.target.value)} checked={gender === 'Female'} />
+            Female
+          </label>
+          <p>Gender</p>
+      
+        </div>
+
+        
+
+        <div className="box">
+        <select onChange={(e) => setActivity(e.target.value)} value={activity}>
+          <option value="">Select Exercise Level</option>
+          <option value="A">No Exercise</option>
+          <option value="B">1-2 Times/Week</option>
+          <option value="C">3-5 Times/Week</option>
+          <option value="D">6-7 Times/Week</option>
+          <option value="E">2 Times/Day</option>
+        </select>
+        </div>
   
-      </div>
+        </div>
   
       <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         Units:
@@ -77,6 +126,8 @@ function App() {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <button onClick={handleClick}>Calculate BMI</button>
       </div>
+
+      <p>Your Maintenance Calories {bmr}</p>
 
       <OutputDisplay bmivalue={bmi}></OutputDisplay>
       <ResultBar bmiResult={bmi} />
