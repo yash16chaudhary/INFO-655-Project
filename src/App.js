@@ -16,7 +16,7 @@ function App() {
   const [bmr, setBmr] = useState(0);
   const [units, setUnits] = useState('');
   const [gender, setGender] = useState('');
-  const [activity, setActivity] = useState('');
+  const [activity, setActivity] = useState(0);
   
   const weightAsNumber = Number(weight);
   const heightAsNumber = Number(height);
@@ -25,15 +25,15 @@ function App() {
     if (units === 'Metric') {
       setBmi((weightAsNumber / ((heightAsNumber / 100) ** 2)).toFixed(2));
       if(gender=== "Female")
-      {setBmr(((weightAsNumber*10)+(height*6.25)-(age*5)-161).toFixed(2))}
+      {setBmr((((weightAsNumber*10)+(height*6.25)-(age*5)-161)*activity).toFixed(2))}
       else
-      {setBmr(((weightAsNumber*10)+(height*6.25)-(age*5)+5).toFixed(2))}
+      {setBmr((((weightAsNumber*10)+(height*6.25)-(age*5)+5)*activity).toFixed(2))}
     } else {
       setBmi((weightAsNumber / (heightAsNumber ** 2) * 703).toFixed(2));
       if(gender=== "Female")
-      {setBmr(((weightAsNumber*4.536)+(height*15.88)-(age*5)+5).toFixed(2))}
+      {setBmr((((weightAsNumber*4.536)+(height*15.88)-(age*5)-161)*activity).toFixed(2))}
       else
-      {setBmr(((weightAsNumber*4.536)+(height*15.88)-(age*5)+5).toFixed(2))}
+      {setBmr((((weightAsNumber*4.536)+(height*15.88)-(age*5)+5)*activity).toFixed(2))}
     }
   };
 
@@ -95,12 +95,12 @@ function App() {
 
         <div className="box">
         <select onChange={(e) => setActivity(e.target.value)} value={activity}>
-          <option value="">Select Exercise Level</option>
-          <option value="A">No Exercise</option>
-          <option value="B">1-2 Times/Week</option>
-          <option value="C">3-5 Times/Week</option>
-          <option value="D">6-7 Times/Week</option>
-          <option value="E">2 Times/Day</option>
+          <option value={1}>Select Exercise Level</option>
+          <option value={1.2}>No Exercise</option>
+          <option value={1.375}>1-2 Times/Week</option>
+          <option value={1.55}>3-5 Times/Week</option>
+          <option value={1.725}>6-7 Times/Week</option>
+          <option value={1.9}>2 Times/Day</option>
         </select>
         </div>
   
@@ -138,6 +138,7 @@ function App() {
 }
 
 //Need to add BMR Output Component
-//Need to add logic for exercise level
+//Need to add live conversions for Metric->US
+//Need to add slider
 
 export default App;
