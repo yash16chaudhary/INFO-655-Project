@@ -17,6 +17,7 @@ function App() {
   const [units, setUnits] = useState('US');
   const [gender, setGender] = useState('Male');
   const [activity, setActivity] = useState(1);
+  const [sleephrs, setSleephrs] = useState(1);
 
   const weightAsNumber = Number(weight);
   const heightAsNumber = Number(height);
@@ -138,8 +139,25 @@ const handleClick = () => {
               <option value={1.9}>2 Times/Day</option>
             </select>
           </div>
-      </div>
-        </div>
+
+          <div className="box">
+            <select onChange={(e) => setActivity(e.target.value)} value={sleephrs}>
+              <option value={1}>Select Sleep Level</option>
+              <option value={5}>Less than 6 hours</option>
+              <option value={6}>6 Hours</option>
+              <option value={7}>7 Hours</option>
+              <option value={8}>8 Hours</option>
+              <option value={9}>9 Hours</option>
+              <option value={10}>10 Hours</option>
+              <option value={11}>11 Hours</option>
+              <option value={12}>12 Hours</option>
+            </select>
+          </div>
+          </div>
+          </div>
+        
+      
+       
 
       {/* Result Segment */}
       <div className="segment">
