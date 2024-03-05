@@ -83,7 +83,7 @@ const handleClick = () => {
               <input type="radio" name="Male" value="Male" defaultChecked={true} onChange={(e) => setGender(e.target.value)} checked={gender === 'Male'} />
               Male
             </label>
-            <label>
+            <label> 
               <input type="radio" name="Female" value="Female" onChange={(e) => setGender(e.target.value)} checked={gender === 'Female'} />
               Female
             </label>
