@@ -3,6 +3,7 @@ import './App.css';
 import ResultBar from './ResultBar';
 import OutputDisplay from './OutputDisplay';
 import BMRDisplay from './BMRDisplay';
+import SleepDisplay from './SleepDisplay';
 import WeightDisplay from './WeightDisplay';
 import HeightDisplay from './HeightDisplay';
 import GainWeight from './GainWeight';
@@ -18,6 +19,7 @@ function App() {
   const [gender, setGender] = useState('Male');
   const [activity, setActivity] = useState(1);
   const [sleephrs, setSleephrs] = useState(1);
+  const [sleepscore, setSleepscore] = useState('Good');
 
   const weightAsNumber = Number(weight);
   const heightAsNumber = Number(height);
@@ -58,6 +60,27 @@ const calculateBMR = () => {
 const handleClick = () => {
   setBmi(calculateBMI());
   setBmr(calculateBMR());
+
+  //CDC Sleep Guidelines---more logic can be added
+
+  if(age<13&&sleephrs>=9)
+  {setSleepscore('Good')}
+  else
+  {setSleepscore('Bad')}
+  if(age>13&&age<18&&sleephrs>=8)
+  {setSleepscore('Good')}
+  else
+  {setSleepscore('Bad')}
+  if(age>18&&sleephrs>=7)
+  {setSleepscore('Good')}
+  else
+  {setSleepscore('Bad')}
+
+
+  
+
+
+
 };
   const handleClick2 = () => {
     setWeight(weightAsNumber + 10);
@@ -141,7 +164,7 @@ const handleClick = () => {
           </div>
 
           <div className="box">
-            <select onChange={(e) => setActivity(e.target.value)} value={sleephrs}>
+            <select onChange={(e) => setSleephrs(e.target.value)} value={sleephrs}>
               <option value={1}>Select Sleep Level</option>
               <option value={5}>Less than 6 hours</option>
               <option value={6}>6 Hours</option>
@@ -170,9 +193,11 @@ const handleClick = () => {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <button onClick={handleClick}>Calculate BMI/BMR</button>
+          <button onClick={handleClick}>Get Fitness Scores</button>
         </div>
 
+
+        <SleepDisplay sleepvalue={sleepscore}></SleepDisplay>
         <BMRDisplay bmrvalue={bmr}></BMRDisplay>
         <OutputDisplay bmivalue={bmi}></OutputDisplay>
         <ResultBar bmiResult={bmi} />
