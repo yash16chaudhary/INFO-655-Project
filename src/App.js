@@ -76,11 +76,6 @@ const handleClick = () => {
   else
   {setSleepscore('Bad')}
 
-
-  
-
-
-
 };
   const handleClick2 = () => {
     setWeight(weightAsNumber + 10);
@@ -189,8 +184,7 @@ const handleClick = () => {
 
       {/* Result Segment */}
       <div className="segment">
-        <h2>Result</h2>
-        <hr className="divider" />
+
 
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -202,11 +196,11 @@ const handleClick = () => {
           <button onClick={handleClick}>Get Fitness Scores</button>
         </div>
 
-
+        <ResultBar bmiResult={bmi} />
         <SleepDisplay sleepvalue={sleepscore}></SleepDisplay>
         <BMRDisplay bmrvalue={bmr}></BMRDisplay>
         <OutputDisplay bmivalue={bmi}></OutputDisplay>
-        <ResultBar bmiResult={bmi} />
+        
       </div>
     </div>
   );
