@@ -143,7 +143,9 @@ const handleClick = () => {
           </label>
         </p>
     </div>
+    
     </div>
+
       {/* Detailed Info Segment */}
       <div className="segment">
       <h2>Detailed Info</h2>
