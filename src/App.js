@@ -178,9 +178,7 @@ const handleClick = () => {
              </div>
             
           </div>
-        
-      
-       
+ 
 
       {/* Result Segment */}
       <div className="segment">
