@@ -1,5 +1,3 @@
-
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -18,25 +16,28 @@ body {
   color: black; 
 }
 
+
 .segment {
-  position: relative;
-  margin-top: 7px; /* Adjust the margin as needed */
+  display: relative;
+  align-items: center;
+  margin-top: 7px; 
+  margin-left: 50px;/* Adjust the margin as needed */
 }
 
 .divider {
-  position: absolute;
-  top: 0;
-  left: 5;
-  width: 100%;
-  border: 1px solid #bababa;
+  height: 1px;
+  width: 20cm;
+  border: none;
+  border-top: 1px solid #d0cece;
+  margin-top: -20px; /* Adjust the margin-top as needed */
+  margin-bottom: 15px;
+  margin-left: 3.5cm /* Add margin-bottom for separation */
+}
+.segment h2 {
+  color: rgb(65, 172, 239);
+  font-size: 20px;
 }
 
-h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white; /* Header text color */
-}
 
 /* Style the input fields and labels */
 label {
@@ -121,7 +122,19 @@ button:hover {
   flex-direction: column;
   align-items: center;
 }
-
+.Dbox {
+  background: linear-gradient(to right, #ffffff, #e7e6e6);
+  height: 40px;
+  width: 500px; /* Adjusted width */
+  border: 1px solid #d0cece; /* Added border */
+  padding: 10px; /* Increased padding for better spacing */
+  border-radius: 10px;
+  margin-left: 65px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between; /* Aligned items with space between */
+  align-items: center;
+}
 
 .box input {
   width: 60px; 
@@ -161,6 +174,7 @@ button:hover {
   background: linear-gradient(to right, rgb(244, 121, 121) 0%, rgb(151, 235, 151) 50%, rgb(239, 120, 120) 100%);
   position: relative;
   overflow: hidden;
+  border-radius: 5px; /* Adjust the value to control the roundness */
 }
 
 .cone {
@@ -184,5 +198,3 @@ button:hover {
   position: relative;
   z-index: 1; /* Ensure the text is on top of the cone */
 }
-
-
