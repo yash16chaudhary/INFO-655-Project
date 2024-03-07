@@ -182,11 +182,8 @@ const handleClick = () => {
           </div>
  
 
-      {/* Result Segment */}
+
       <div className="segment">
-
-
-
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <GainWeight unitvalue={units} onClick={handleClick2}></GainWeight>
           <LoseWeight unitvalue={units} onClick={handleClick3}></LoseWeight>
