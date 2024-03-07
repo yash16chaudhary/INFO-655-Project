@@ -13,10 +13,8 @@ body {
 
 body {
   background: linear-gradient(to right, #ffffff, #61dafb);
-  color: black; 
+  color: black;   
 }
-
-
 .segment {
   display: relative;
   align-items: center;
