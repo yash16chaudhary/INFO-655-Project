@@ -121,17 +121,28 @@ button:hover {
   align-items: center;
 }
 .Dbox {
-  background: linear-gradient(to right, #ffffff, #e7e6e6);
+  background: linear-gradient(to right, #ffffff, #efefef);
   height: 40px;
-  width: 500px; /* Adjusted width */
-  border: 1px solid #d0cece; /* Added border */
-  padding: 10px; /* Increased padding for better spacing */
+  width: 500px;
+  border: 1px solid #d0cece;
+  padding: 10px;
   border-radius: 10px;
   margin-left: 65px;
   margin-top: 15px;
   display: flex;
-  justify-content: space-between; /* Aligned items with space between */
+  justify-content: space-between;
   align-items: center;
+}
+
+/* Added styles for the select element */
+.Dbox select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background: white;
+  width: 165px;
+  outline: none;
+  cursor: pointer;
 }
 
 .box input {
