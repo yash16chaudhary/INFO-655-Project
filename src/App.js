@@ -6,8 +6,6 @@ import BMRDisplay from './BMRDisplay';
 import SleepDisplay from './SleepDisplay';
 import WeightDisplay from './WeightDisplay';
 import HeightDisplay from './HeightDisplay';
-import GainWeight from './GainWeight';
-import LoseWeight from './LoseWeight';
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
@@ -78,13 +76,7 @@ const handleClick = () => {
   {setSleepscore('Bad')}
 
 };
-  const handleClick2 = () => {
-    setWeight(weightAsNumber + 10);
-  };
-
-  const handleClick3 = () => {
-    setWeight(weightAsNumber - 10);
-  };
+  
 
   return (
     <div>
