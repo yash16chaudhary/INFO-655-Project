@@ -9,8 +9,6 @@ import HeightDisplay from './HeightDisplay';
 import GainWeight from './GainWeight';
 import LoseWeight from './LoseWeight';
 
-////
-
 function App() {
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
@@ -78,11 +76,6 @@ const handleClick = () => {
   else
   {setSleepscore('Bad')}
 
-
-  
-
-
-
 };
   const handleClick2 = () => {
     setWeight(weightAsNumber + 10);
@@ -98,6 +91,7 @@ const handleClick = () => {
       <div className="segment">
         <h2>Basic Info</h2>
         <hr className="divider" />
+
 
         {/* Container for Boxes */}
         <div className="container">
@@ -149,24 +143,30 @@ const handleClick = () => {
           </label>
         </p>
     </div>
+    
+    </div>
+
       {/* Detailed Info Segment */}
       <div className="segment">
-        <h2>Detailed Info</h2>
-        <hr className="divider" />
+      <h2>Detailed Info</h2>
+      <hr className="divider" />
 
-          <div className="box">
-            <select onChange={(e) => setActivity(e.target.value)} value={activity}>
-              <option value={1}>Select Exercise Level</option>
-              <option value={1.2}>No Exercise</option>
-              <option value={1.375}>1-2 Times/Week</option>
-              <option value={1.55}>3-5 Times/Week</option>
-              <option value={1.725}>6-7 Times/Week</option>
-              <option value={1.9}>2 Times/Day</option>
-            </select>
-          </div>
 
-          <div className="box">
-            <select onChange={(e) => setSleephrs(e.target.value)} value={sleephrs}>
+        <div className="Dbox">
+          <label htmlFor="exerciseDays">How many days do you workout in a week?</label>
+          <select id="exerciseDays" onChange={(e) => setActivity(e.target.value)} value={activity}>
+            <option value={1}>Select Exercise Level</option>
+            <option value={1.2}>No Exercise</option>
+            <option value={1.375}>1-2 Times/Week</option>
+            <option value={1.55}>3-5 Times/Week</option>
+            <option value={1.725}>6-7 Times/Week</option>
+            <option value={1.9}>2 Times/Day</option>
+          </select>
+        </div>
+
+          <div className="Dbox">
+            <label htmlFor="sleepHours">How many hours do you sleep at night?</label>
+            <select id="sleepHours" onChange={(e) => setSleephrs(e.target.value)} value={sleephrs}>
               <option value={1}>Select Sleep Level</option>
               <option value={5}>Less than 6 hours</option>
               <option value={6}>6 Hours</option>
@@ -177,18 +177,13 @@ const handleClick = () => {
               <option value={11}>11 Hours</option>
               <option value={12}>12 Hours</option>
             </select>
+             </div>
+            
           </div>
-          </div>
-          </div>
-        
-      
-       
+ 
 
-      {/* Result Segment */}
+
       <div className="segment">
-        <h2>Result</h2>
-        <hr className="divider" />
-
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <GainWeight unitvalue={units} onClick={handleClick2}></GainWeight>
           <LoseWeight unitvalue={units} onClick={handleClick3}></LoseWeight>
@@ -198,11 +193,11 @@ const handleClick = () => {
           <button onClick={handleClick}>Get Fitness Scores</button>
         </div>
 
-
+        <ResultBar bmiResult={bmi} />
         <SleepDisplay sleepvalue={sleepscore}></SleepDisplay>
         <BMRDisplay bmrvalue={bmr}></BMRDisplay>
         <OutputDisplay bmivalue={bmi}></OutputDisplay>
-        <ResultBar bmiResult={bmi} />
+        
       </div>
     </div>
   );
