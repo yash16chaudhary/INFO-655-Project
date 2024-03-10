@@ -8,6 +8,9 @@ import WeightDisplay from './WeightDisplay';
 import HeightDisplay from './HeightDisplay';
 import GainWeight from './GainWeight';
 import LoseWeight from './LoseWeight';
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
+
 
 function App() {
   const [height, setHeight] = useState(0);
@@ -87,7 +90,7 @@ const handleClick = () => {
 
   return (
     <div>
-      <h1 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>BMI & BMR Calculator</h1>
+      <h1 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Fitness Calculator</h1>
       <div className="segment">
         <h2>Basic Info</h2>
         <hr className="divider" />
@@ -156,7 +159,7 @@ const handleClick = () => {
           <label htmlFor="exerciseDays">How many days do you workout in a week?</label>
           <select id="exerciseDays" onChange={(e) => setActivity(e.target.value)} value={activity}>
             <option value={1}>Select Exercise Level</option>
-            <option value={1.2}>No Exercise</option>
+            <option value={1.2}>0 Days</option>
             <option value={1.375}>1-2 Times/Week</option>
             <option value={1.55}>3-5 Times/Week</option>
             <option value={1.725}>6-7 Times/Week</option>
@@ -182,21 +185,45 @@ const handleClick = () => {
           </div>
  
 
-
+      
       <div className="segment">
+        
+
+        
+
+        <p>Adjust Weight</p>
+
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <GainWeight unitvalue={units} onClick={handleClick2}></GainWeight>
-          <LoseWeight unitvalue={units} onClick={handleClick3}></LoseWeight>
-        </div>
+
+        <Slider 
+              defaultValue={100}
+              min={0}
+              max={300}
+              value={weightAsNumber}
+              step={1}
+              onChange={(e) => setWeight(e)}
+              style={{ width: "50%" }}
+            />
+           </div>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <button onClick={handleClick}>Get Fitness Scores</button>
         </div>
 
-        <ResultBar bmiResult={bmi} />
+        
+
+
+        <div className='Outbox' style={{  justifyContent: 'center' }}>
         <SleepDisplay sleepvalue={sleepscore}></SleepDisplay>
         <BMRDisplay bmrvalue={bmr}></BMRDisplay>
         <OutputDisplay bmivalue={bmi}></OutputDisplay>
+        <ResultBar bmiResult={bmi} />
+
+        </div>
+
+        
+
+        
         
       </div>
     </div>

@@ -209,3 +209,20 @@ button:hover {
   position: relative;
   z-index: 1; /* Ensure the text is on top of the cone */
 }
+
+.Outbox {
+  background: linear-gradient(to right, #ffffff, #efefef);
+  height: 40px;
+  width: 75%;
+  border: 1px solid #d0cece;
+  padding: 10px;
+  border-radius: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Poppins', sans-serif; 
+  font-weight: 550;
+}
+
+
