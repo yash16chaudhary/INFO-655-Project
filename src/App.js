@@ -64,17 +64,15 @@ const handleClick = () => {
   setBmi(calculateBMI());
   setBmr(calculateBMR());
 
-  //CDC Sleep Guidelines---more logic can be added
+  //CDC Loose Sleep Guidelines---more logic can be added
 
   if(age<13&&sleephrs>=9)
   {setSleepscore('Good')}
-  else
-  {setSleepscore('Bad')}
-  if(age>13&&age<18&&sleephrs>=8)
+
+  else if(age>13&&age<18&&sleephrs>=8)
   {setSleepscore('Good')}
-  else
-  {setSleepscore('Bad')}
-  if(age>18&&sleephrs>=7)
+
+  else if(age>18&&sleephrs>=7)
   {setSleepscore('Good')}
   else
   {setSleepscore('Bad')}
