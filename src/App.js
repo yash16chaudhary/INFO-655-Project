@@ -15,7 +15,7 @@ function App() {
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
   const [age, setAge] = useState(0);
-  const [bmi, setBmi] = useState(0);
+  const [bmi, setBmi] = useState(20);
   const [bmr, setBmr] = useState(0);
   const [units, setUnits] = useState('US');
   const [gender, setGender] = useState('Male');
@@ -62,10 +62,12 @@ const calculateBMR = () => {
 const handleClick = () => {
   setBmi(calculateBMI());
   setBmr(calculateBMR());
-  //Confetti logic?
+  //Confetti logic - does not automatically update bmi
+  if(bmi<30&&bmi>18.5){
   confetti({
     particleCount: 150,
     spread: 60});
+  }
 
   //CDC Loose Sleep Guidelines---more logic can be added
 
