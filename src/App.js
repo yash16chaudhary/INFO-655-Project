@@ -15,7 +15,7 @@ function App() {
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
   const [age, setAge] = useState(0);
-  const [bmi, setBmi] = useState(20);
+  const [bmi, setBmi] = useState(0);
   const [bmr, setBmr] = useState(0);
   const [units, setUnits] = useState('US');
   const [gender, setGender] = useState('Male');
