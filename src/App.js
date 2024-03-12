@@ -8,6 +8,7 @@ import WeightDisplay from './WeightDisplay';
 import HeightDisplay from './HeightDisplay';
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import confetti from "https://esm.run/canvas-confetti@1";
 
 
 function App() {
@@ -61,6 +62,10 @@ const calculateBMR = () => {
 const handleClick = () => {
   setBmi(calculateBMI());
   setBmr(calculateBMR());
+  //Confetti logic?
+  confetti({
+    particleCount: 150,
+    spread: 60});
 
   //CDC Loose Sleep Guidelines---more logic can be added
 
